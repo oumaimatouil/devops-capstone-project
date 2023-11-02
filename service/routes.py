@@ -7,6 +7,8 @@ from . import app  # Import Flask application
 ############################################################
 # Health Endpoint
 ############################################################
+
+
 @app.route("/health")
 def health():
     """Health Status"""
@@ -15,6 +17,8 @@ def health():
 ######################################################################
 # GET INDEX
 ######################################################################
+
+
 @app.route("/")
 def index():
     """Root URL response"""
@@ -29,6 +33,8 @@ def index():
 ######################################################################
 # CREATE A NEW ACCOUNT
 ######################################################################
+
+
 @app.route("/accounts", methods=["POST"])
 def create_accounts():
     """
@@ -51,6 +57,8 @@ def create_accounts():
 ######################################################################
 # LIST ALL ACCOUNTS
 ######################################################################
+
+
 @app.route("/accounts", methods=["GET"])
 def list_accounts():
     """
@@ -66,6 +74,8 @@ def list_accounts():
 ######################################################################
 # READ AN ACCOUNT
 ######################################################################
+
+
 @app.route("/accounts/<int:account_id>", methods=["GET"])
 def read_account(account_id):
     """
@@ -103,6 +113,8 @@ def update_account(account_id):
 ######################################################################
 # DELETE AN ACCOUNT
 ######################################################################
+
+
 @app.route("/accounts/<int:account_id>", methods=["DELETE"])
 def delete_account(account_id):
     """
@@ -118,6 +130,7 @@ def delete_account(account_id):
 ######################################################################
 #  U T I L I T Y   F U N C T I O N S
 ######################################################################
+
 
 def check_content_type(media_type):
     """Checks that the media type is correct"""
