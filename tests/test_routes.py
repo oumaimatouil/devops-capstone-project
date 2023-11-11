@@ -53,6 +53,7 @@ class TestAccountService(TestCase):
         """Runs once after each test case"""
         db.session.remove()
 
+
     ######################################################################
     #  H E L P E R   M E T H O D S
     ######################################################################
@@ -191,3 +192,4 @@ class TestAccountService(TestCase):
         response = self.client.get('/', environ_overrides=HTTPS_ENVIRON)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.headers.get('Access-Control-Allow-Origin'), '*')
+        
