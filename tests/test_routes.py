@@ -53,13 +53,13 @@ class TestAccountService(TestCase):
         """Runs once after each test case"""
         db.session.remove()
 
-
     ######################################################################
     #  H E L P E R   M E T H O D S
     ######################################################################
 
     def _create_accounts(self, count):
         """Factory method to create accounts in bulk"""
+
         accounts = []
         for _ in range(count):
             account = AccountFactory()
@@ -154,6 +154,7 @@ class TestAccountService(TestCase):
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         updated_account = resp.get_json()
         self.assertEqual(updated_account["name"], "Something Known")
+
     def test_delete_account(self):
         """It should delete an account"""
         account = self._create_accounts(1)[0]
@@ -173,6 +174,7 @@ class TestAccountService(TestCase):
         """It should not allow an illegal method call"""
         resp = self.client.delete(BASE_URL)
         self.assertEqual(resp.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+    
     def test_security_headers(self):
         """It should return security headers"""
         response = self.client.get('/', environ_overrides=HTTPS_ENVIRON)
